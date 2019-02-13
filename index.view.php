@@ -9,47 +9,17 @@
 </head>
 <body>
 
-<h1><?= "Hello {$name}!"; ?></h1>
-
-<?php
-    //dd($_SERVER);
-?>
-
-<ul>
-    <?php
-    foreach ($person as $key => $value) {
-        echo "<li><strong>{$key}:</strong> {$value}</li>";
-    }
-    ?>
-</ul>
-
-<p>GET name paramétere: <?= $_GET['name'] ?></p>
-
-<?php
-
-if ($_GET['name'] === 'Tomi') {
-    echo "<p>Na végre, hogy visszatértél!</p>";
-} else {
-    echo "<p>Üdv újra itt, miben segíthetek?</p>";
-}
-
-if ($_GET['name'] === 'Tomi') : ?>
-    <p>Short if saját neves példa igaz ága</p>
-<?php else: ?>
-    <p>Short if saját neves példa hamis ága</p>
-<?php endif;
-?>
-
-<?php echo (int) ($_GET['name'] === 'Tomi'); // ternary statement részének magyarázata ?>
-<p>Ternary operatorral kiértékelve: <?= $_GET['name'] === 'Tomi' ? "yup" : "nope" ?></p>
-
-<p>
-    5+5 =
-    <?php
-        $result = sum(5, 5);
-        echo $result;
-    ?>
-</p>
+    <ul>
+    <?php foreach ($tasks as $task) : ?>
+        <li>
+            <?php if ($task->completed) : ?>
+                <strike><?= $task->description ?></strike>
+            <?php else: ?>
+                <?= $task->description ?>
+            <?php endif; ?>
+        </li>
+    <?php endforeach; ?>
+    </ul>
 
 </body>
 </html>
