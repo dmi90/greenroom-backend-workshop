@@ -3,12 +3,7 @@
 require "functions.php";
 require "Task.php";
 
-$tasks = [
-    new Task('Első feladat'),
-    new Task('Második feladat'),
-    new Task('Harmadik feladat')
-];
-
-$tasks[0]->complete();
+$pdo = connectToDb();
+$tasks = fetchAllTasks($pdo);
 
 require "index.view.php";
