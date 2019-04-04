@@ -1,33 +1,17 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Workshop index</title>
-</head>
-<body>
+<?php require "partials/head.php"; ?>
 
-    <nav>
-        <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/policy">Policy</a></li>
-            <li><a href="/contact">Contact</a></li>
-        </ul>
-    </nav>
+<h1>Home</h1>
 
-    <ul>
-    <?php foreach ($tasks as $task) : ?>
-        <li>
-            <?php if ($task->completed) : ?>
-                <strike><?= $task->getAssignee() . ": " . $task->description ?></strike>
-            <?php else: ?>
-                <?= $task->getAssignee() . ": " . $task->description ?>
-            <?php endif; ?>
-        </li>
-    <?php endforeach; ?>
-    </ul>
+<ul>
+<?php foreach ($tasks as $task) : ?>
+    <li>
+        <?php if ($task->completed) : ?>
+            <strike><?= $task->getAssignee() . ": " . $task->description ?></strike>
+        <?php else: ?>
+            <?= $task->getAssignee() . ": " . $task->description ?>
+        <?php endif; ?>
+    </li>
+<?php endforeach; ?>
+</ul>
 
-</body>
-</html>
+<?php require "partials/footer.php"; ?>

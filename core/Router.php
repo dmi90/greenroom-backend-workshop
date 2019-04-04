@@ -4,14 +4,14 @@ class Router
 {
     protected $routes;
 
-    /**
-     * @param $routes
-     *
-     * Setter function of the $routes parameter
-     */
-    public function define($routes)
+    public function get($uri, $controller)
     {
-        $this->routes = $routes;
+        $this->routes['GET'][$uri] = $controller;
+    }
+
+    public function post($uri, $controller)
+    {
+        $this->routes['POST'][$uri] = $controller;
     }
 
     /**
@@ -22,10 +22,10 @@ class Router
      * Returns a route based on the given uri
      * Routes are stored in the $routes param of this class, they can be defined using the define function
      */
-    public function direct($uri)
+    public function direct($uri, $method)
     {
-        if (array_key_exists($uri, $this->routes)) {
-            return $this->routes[$uri];
+        if (array_key_exists($uri, $this->routes[$method])) {
+            return $this->routes[$method][$uri];
         }
 
         throw new Exception('No route found.');

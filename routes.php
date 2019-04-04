@@ -1,7 +1,8 @@
 <?php
 
-$router->define([
-    '' => 'controllers/index.php',
-    'contact' => 'controllers/contact.php',
-    'policy' => 'controllers/policy.php'
-]);
+$router->get('', 'controllers/index.php');
+$router->get('contact', 'controllers/contact.php');
+$router->get('policy', 'controllers/policy.php');
+$router->get('task', 'controllers/task.php');
+
+$router->post('insert', 'controllers/insert-task.php');
