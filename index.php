@@ -1,7 +1,9 @@
 <?php
 
+require "vendor/autoload.php";
+
 // Requiring bootstrap.php, which is responsible for preparing the app in the background
-$query = require "core/bootstrap.php";
+$database = require "core/bootstrap.php";
 
 // Getting the current uri
 $uri = Request::uri();

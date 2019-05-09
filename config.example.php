@@ -2,10 +2,12 @@
 
 return [
     'site' => [
-        'title' => 'Oldal neve'
+        'title' => 'Random oldal vagyok'
     ],
     'database' => [
-        'dsn' => 'mysql:dbname=myapp;host=127.0.0.1',
+        'database_type' => 'mysql',
+        'database_name' => 'myapp',
+        'server'     => '127.0.0.1',
         'username' => 'root',
         'password' => ''
     ]

@@ -1,14 +1,15 @@
 <?php
 
+use Medoo\Medoo;
+
 require "functions.php";
-require "Router.php";
-require "Request.php";
-require "database/Connection.php";
-require "database/QueryBuilder.php";
-require "Task.php";
 
 $config = require "config.php";
 
-return new QueryBuilder(
-    Connection::make($config['database'])
-);
+return new Medoo([
+    'database_type' => $config['database']['database_type'],
+    'database_name' => $config['database']['database_name'],
+    'server' => $config['database']['server'],
+    'username' => $config['database']['username'],
+    'password' => $config['database']['password']
+]);

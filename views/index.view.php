@@ -5,10 +5,10 @@
 <ul>
 <?php foreach ($tasks as $task) : ?>
     <li>
-        <?php if ($task->completed) : ?>
-            <strike><?= $task->getAssignee() . ": " . $task->description ?></strike>
+        <?php if ($task['completed']) : ?>
+            <strike><?= $task['assignee'] . ": " . $task['description'] ?></strike>
         <?php else: ?>
-            <?= $task->getAssignee() . ": " . $task->description ?>
+            <?= $task['assignee'] . ": " . $task['description'] ?>
         <?php endif; ?>
     </li>
 <?php endforeach; ?>

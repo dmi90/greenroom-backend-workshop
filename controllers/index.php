@@ -1,7 +1,7 @@
 <?php
 
 // "Business logic"
-$tasks = $query->selectAll('tasks', 'Task');
+$tasks = $database->select('tasks', '*');
 
 // Views
 require "views/index.view.php";
