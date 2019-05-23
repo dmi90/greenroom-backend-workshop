@@ -1,7 +1,7 @@
 <?php
 
-if (isset($_POST['description']) && $_POST['description'] != "" &&
-    isset($_POST['assignee']) && $_POST['assignee'] != "" &&
+if (!empty($_POST['description']) &&
+    !empty($_POST['assignee']) &&
     isset($_POST['completed']) && $_POST['completed'] != "") {
 
     $data = $_POST;
@@ -17,8 +17,8 @@ if (isset($_POST['description']) && $_POST['description'] != "" &&
     }
 
     header("Location: /");
-} else {
-    header("Location: task");
+    exit();
 }
 
+header("Location: task");
 exit();

@@ -14,7 +14,10 @@
             <td><?= $task['description'] ?></td>
             <td><?= $task['assignee'] ?></td>
             <td>
-                <a href="remove?id=<?= $task['id'] ?>">Remove</a>
+                <form method="post" action="remove">
+                    <input type="hidden" name="id" value="<?= $task['id'] ?>">
+                    <input type="submit" name="submitId" value="Remove">
+                </form>
             </td>
         </tr>
         <?php endforeach; ?>

@@ -1,14 +1,15 @@
 <?php
 
-if (isset($_GET["id"])){
+if (!empty($_POST["submitId"]) &&
+    !empty($_POST["id"])) {
     $database->delete('tasks', [
-        "id" => $_GET["id"]
+        "id" => $_POST["id"]
     ]);
 
     if ($database->error()[0]!=0){
         dd("Ooops, something went wrong :(");
     }
-
-    header("Location: /");
-    exit();
 }
+
+header("Location: /");
+exit();

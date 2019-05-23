@@ -2,7 +2,7 @@
 
     <h1>Task page</h1>
 
-    <form method="post" action="/insert">
+    <form method="post" action="/insert" class="simple-form">
         <div class="form-row">
             <label for="description" class="label">Description:</label>
             <textarea name="description" required></textarea>
