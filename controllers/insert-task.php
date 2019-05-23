@@ -1,6 +1,24 @@
 <?php
 
-// @todo Implementation of the insert script
+if (!empty($_POST['description']) &&
+    !empty($_POST['assignee']) &&
+    isset($_POST['completed']) && $_POST['completed'] != "") {
 
-echo "Ez itt az insert controller. A postolt adat:";
-dd($_POST);
+    $data = $_POST;
+
+    $database->insert('tasks', [
+        'description' => $data["description"],
+        'assignee' => $data["assignee"],
+        'completed' => $data["completed"],
+    ]);
+
+    if ($database->error()[0]!=0){
+        dd("Ooops, something went wrong :(");
+    }
+
+    header("Location: /");
+    exit();
+}
+
+header("Location: task");
+exit();
