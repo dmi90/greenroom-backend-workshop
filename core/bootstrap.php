@@ -4,12 +4,15 @@ use Medoo\Medoo;
 
 require "functions.php";
 
-$config = require "config.php";
+$dotenv = Dotenv\Dotenv::create('.');
+$dotenv->load();
+
+//$config = require "config.php";
 
 return new Medoo([
-    'database_type' => $config['database']['database_type'],
-    'database_name' => $config['database']['database_name'],
-    'server' => $config['database']['server'],
-    'username' => $config['database']['username'],
-    'password' => $config['database']['password']
+    'database_type' => $_ENV['DB_TYPE'],
+    'database_name' => $_ENV['DB_NAME'],
+    'server' => $_ENV['DB_SERVER'],
+    'username' => $_ENV['DB_USER'],
+    'password' => $_ENV['DB_PASS']
 ]);
