@@ -1,4 +1,5 @@
 <?php
+require "logger.php";
 
 if (!empty($_POST["submitId"]) &&
     !empty($_POST["id"])) {
@@ -7,7 +8,9 @@ if (!empty($_POST["submitId"]) &&
     ]);
 
     if ($database->error()[0]!=0){
-        dd("Ooops, something went wrong :(");
+        $log->error("Ooops, something went wrong :(");
+    } else {
+        $log->info("The task is removed!");
     }
 }
 

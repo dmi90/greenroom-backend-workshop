@@ -1,4 +1,5 @@
 <?php
+require "logger.php";
 
 if (!empty($_POST['description']) &&
     !empty($_POST['assignee']) &&
@@ -13,7 +14,9 @@ if (!empty($_POST['description']) &&
     ]);
 
     if ($database->error()[0]!=0){
-        dd("Ooops, something went wrong :(");
+        $log->error("Ooops, something went wrong :(");
+    } else {
+        $log->info("New task added!");
     }
 
     header("Location: /");

@@ -3,6 +3,7 @@
 use Medoo\Medoo;
 
 require "functions.php";
+require "logger.php";
 
 $config = require "config.php";
 

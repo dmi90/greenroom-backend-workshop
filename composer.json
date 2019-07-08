@@ -5,6 +5,7 @@
     ]
   },
   "require": {
-    "catfan/medoo": "^1.6"
+    "catfan/medoo": "^1.6",
+    "monolog/monolog": "^1.24"
   }
 }

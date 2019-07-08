@@ -13,3 +13,5 @@ $uri = Request::uri();
 // The load function sets the routes on the router itself
 // The direct function returns the controller path determined based on the given uri
 require Router::load("routes.php")->direct($uri, Request::method());
+
+
